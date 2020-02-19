@@ -34,7 +34,7 @@ public class IndexController {
 
 	@RequestMapping(value = "/skirtumas")
 
-	public String getCurrencyResults(@RequestParam(value = "nuo", defaultValue = "erro") String nuo,
+	public String getCurrencyResults(@RequestParam(value = "nuo", defaultValue = "error") String nuo,
 			@RequestParam(value = "iki", defaultValue = "error") String iki,
 			@RequestParam(value = "valiuta", defaultValue = "error") String valiuta, Model model)
 			throws ParserConfigurationException, SAXException, IOException, ParseException
