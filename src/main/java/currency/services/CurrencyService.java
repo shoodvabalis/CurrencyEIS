@@ -1,4 +1,4 @@
-package currency.repository;
+package currency.services;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -10,7 +10,7 @@ import java.util.List;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -21,8 +21,8 @@ import currency.models.Currency;
 import currency.models.CurrencyDifference;
 import currency.models.DifferenceReturn;
 
-@Repository
-public class CurrencyRepository {
+@Service
+public class CurrencyService {
 
 	public List<Currency> getInfoFromXml(String date) throws ParserConfigurationException, SAXException, IOException {
 

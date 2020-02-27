@@ -18,13 +18,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.xml.sax.SAXException;
 import currency.models.Currency;
 import currency.models.DifferenceReturn;
-import currency.repository.CurrencyRepository;
+import currency.services.CurrencyService;
 
 @Controller
 public class IndexController {
 
 	@Autowired
-	CurrencyRepository currency;
+	CurrencyService currency;
 
 	@RequestMapping()
 	public String indexList(Model model) throws ParserConfigurationException, SAXException, IOException {
@@ -34,12 +34,11 @@ public class IndexController {
 
 	@RequestMapping(value = "/skirtumas")
 
-	public String getCurrencyResults(@RequestParam(value = "nuo", defaultValue = "error") String nuo,
+	public String getCurrencyResults(@RequestParam(value = "nuo", defaultValue = "erro") String nuo,
 			@RequestParam(value = "iki", defaultValue = "error") String iki,
 			@RequestParam(value = "valiuta", defaultValue = "error") String valiuta, Model model)
 			throws ParserConfigurationException, SAXException, IOException, ParseException
 	{
-
 		List<Currency> currencyCodes = currency.getInfoFromXml("2020-02-03");
 		model.addAttribute("currencyCode", currencyCodes);
 		LocalDateTime dateNuo;
